@@ -5,8 +5,7 @@ const fs = require("fs");
 const https = require("https");
 const bodyParser = require("body-parser");
 const authRoute = require("./routes/auth");
-const homeRoute = require("./routes/home");
-const verifyRoute = require("./routes/verify_auth");
+const verifyRoute = require("./routes/verify");
 
 dotenv.config();
 const port = 441;
@@ -18,7 +17,6 @@ const db_name = "prod";
 const app = express();
 app.use(bodyParser.json());
 app.use("/api/user", authRoute);
-app.use("/api/home", homeRoute);
 app.use("/api/verify", verifyRoute);
 
 mongoose.connect(
